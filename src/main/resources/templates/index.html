@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru"  xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <title>Крестики нолики</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="/js/catalog.js"></script>
+    <meta content="text/html; charset=utf-8">
+</head>
+<body>
+<table>
+    <tr><td><button onclick="turn(11)" id="11">0</button></td><td><button onclick="turn(21)" id="21">0</button></td><td><button onclick="turn(31)" id="31">0</button></td></tr>
+    <tr><td><button onclick="turn(12)" id="12">0</button></td><td><button onclick="turn(22)" id="22">0</button></td><td><button onclick="turn(32)" id="32">0</button></td></tr>
+    <tr><td><button onclick="turn(13)" id="13">0</button></td><td><button onclick="turn(23)" id="23">0</button></td><td><button onclick="turn(33)" id="33">0</button></td></tr>
+</table>
+<script>
+    function turn(value){
+        console.log(value);
+        var xhr = new XMLHttpRequest();
+        let url = new URL('http://localhost:8080/game');
+        xhr.open('GET',url, true);
+        xhr.send(value);
+        console.log(xhr.responseText);
+    }
+</script>
+</body>
+</html>
